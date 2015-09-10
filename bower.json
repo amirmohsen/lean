@@ -1,11 +1,12 @@
 {
   "name": "lean",
   "version": "0.1.0",
-  "homepage": "https://github.com/amirmohsen/lean",
+  "homepage": "https://github.com/InteractiveRed/lean",
   "authors": [
     "InteractiveRed <sysadmin@interactive.red>"
   ],
   "description": "A minimalistic, component-driven UI library using the real DOM",
+  "main": "dist/lean.js",
   "license": "MIT",
   "ignore": [
     "**/.*",
@@ -15,7 +16,5 @@
     "test",
     "tests"
   ],
-  "dependencies": {
-    "handlebars": "~4.0.2"
-  }
+  "dependencies": {}
 }

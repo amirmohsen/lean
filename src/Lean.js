@@ -1,4 +1,6 @@
-export class Lean {
+import {Handlebars} from "../node_modules/handlebars/dist/handlebars.amd.js";
+
+export default class Lean {
 
 	constructor() {
 		this.name = this.constructor.name;
