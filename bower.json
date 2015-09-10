@@ -1,0 +1,21 @@
+{
+  "name": "lean",
+  "version": "0.1.0",
+  "homepage": "https://github.com/amirmohsen/lean",
+  "authors": [
+    "InteractiveRed <sysadmin@interactive.red>"
+  ],
+  "description": "A minimalistic, component-driven UI library using the real DOM",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "handlebars": "~4.0.2"
+  }
+}
