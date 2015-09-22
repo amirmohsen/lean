@@ -1,4 +1,6 @@
 var
+	FS = require("fs"),
+	Path = require("path"),
 	CommandLineArgs = require("command-line-args"),
 	LeanCompiler = require("./LeanCompiler.js");
 
@@ -15,7 +17,6 @@ var usage = cli.getUsage({
 });
 
 try {
-
 	var options = cli.parse();
 
 	if(options.help) {
@@ -25,9 +26,21 @@ try {
 	if(options.src && options.dest) {
 		LeanCompiler.compile(false, options.src, options.dest);
 	}
+	else if(options.src || options.dest) {
+		throw new Error("");
+	}
+	else {
+		var
+			leanConfig = JSON.parse(FS.readFileSync(process.cwd() + "/lean.json", {
+				encoding: "utf8"
+			})),
+			src = Path.join(process.cwd(), leanConfig.src),
+			dest = Path.join(process.cwd(), leanConfig.dest);
 
-	console.log(usage);
+		LeanCompiler.run(src, dest);
+	}
 }
 catch(e) {
+	console.error(e);
 	console.log(usage);
 }

@@ -1,4 +1,4 @@
-import {Handlebars} from "../node_modules/handlebars/dist/handlebars.amd.js";
+var Handlebars = require("handlebars");
 
 export default class Lean {
 
@@ -18,7 +18,7 @@ export default class Lean {
 
 	postrender() {
 		this.element = document.getElementById(this.id);
-		this.element.dataset.self = this;
+		this.element.self = this;
 		this.postrenderRecursive(this.children);
 	}
 
@@ -94,7 +94,7 @@ export default class Lean {
 	}
 
 	static findInstance(id) {
-		return document.getElementById(id).dataset.self;
+		return document.getElementById(id).self;
 	}
 
 	static getBaseName(str) {

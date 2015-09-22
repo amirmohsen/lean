@@ -10,10 +10,17 @@ var babel = require('babelify');
 var Compiler = {
 
 	compile: function(watch, src, dest) {
+		var bundler;
+
 		src = Compiler.normalizeSrc(src);
 		dest = Compiler.normalizeDest(dest);
 
-		var bundler = watchify(browserify(src, { debug: true }).transform(babel));
+		if(watch) {
+			bundler = watchify(browserify(src, { debug: true }).transform(babel));
+		}
+		else {
+			bundler = browserify(src, { debug: true }).transform(babel);
+		}
 
 		function rebundle() {
 			bundler
@@ -50,6 +57,11 @@ var Compiler = {
 			name: Path.basename(dest),
 			dir: Path.dirname(dest)
 		};
+	},
+
+	run: function(src, dest) {
+		Compiler.compile(false, src, dest);
+		Compiler.watch(src, dest);
 	},
 
 	gulp: function(src, dest) {
