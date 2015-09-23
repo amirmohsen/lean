@@ -20,7 +20,7 @@
   },
   "map": "lib/Lean.js",
   "bin": {
-    "lean": "./dist/cli.js"
+    "lean": "lib/LeanCLI.js"
   },
   "repository": {
     "type": "git",
